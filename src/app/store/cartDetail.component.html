@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col bg-green text-white">
+        <a class="navbar-brand">AQUARIUM 
+          STORE</a>
+          
+      </div>
+
+
+      <div class="card-group">
+        <div class="card">
+          <img src="https://www.procaffenation.com/wp-content/uploads/2018/04/mermaid-001.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+           
+            <p class="card-text">What's more serene and peaceful than having beautiful playmates with you at all times!</p>
+          </div>
+         
+        </div>
+        <div class="card">
+          <img src="https://all4desktop.com/data_images/original/4248302-mermaids.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            
+            <p class="card-text">Having colorful fish at home is a major stress buster as well.</p>
+          </div>
+          
+        </div>
+        <div class="card">
+          <img src="https://st2.depositphotos.com/1023099/7434/i/950/depositphotos_74343367-stock-photo-beautiful-mermaid-sitting-on-a.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            
+            <p class="card-text">Hurry up , what are you waiting for!!!!.</p>
+          </div>
+          
+        </div>
+        <div class="card">
+          <img src="https://st2.depositphotos.com/4556043/9970/i/950/depositphotos_99709702-stock-photo-3d-cg-rendering-of-a.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            
+            <p class="card-text">Take home lovely fishes!Get lost in the world of magic</p>
+          </div>
+         
+        </div>
+      </div>
+      
+      <!-- <div class="card" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text"> </p>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">.</p>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="...">
+        <div class="card-body">
+           <p class="card-text">.</p>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="...">
+        <div class="card-body">
+         <p class="card-text">.</p>
+       </div>
+      </div>
+      <div class="card" style="width: 21rem;">
+        <img src="https://all4desktop.com/data_images/original/4248311-mermaids.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text"></p>
+        </div>
+      </div> -->
+    
+
+     
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+    </div>
+    <div class="row">
+      <div class="col mt-2">
+        <h2 class="text-center">Your Cart</h2>
+        <table class="table table-bordered table-striped p-2">
+          <thead>
+            <tr>
+              <th>Quantity</th>
+              <th>Product</th>
+              <th class="text-right">Price</th>
+              <th class="text-right">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="cart.lines.length == 0">
+              <td colspan="4" class="text-center">
+                Your cart is empty
+              </td>
+            </tr>
+            <tr *ngFor="let line of cart.lines">
+              <td>
+                <input type="number" class="form-control-sm"
+                       style="width:5em"
+                       [value]="line.quantity"
+                       (change)="cart.updateQuantity(line.product,
+                                  $event.target.value)" />
+              </td>
+              <td>{{line.product.name}}</td>
+              <td class="text-right">
+                {{line.product.price | currency:"USD":true:"2.2-2"}}
+              </td>
+              <td class="text-right">
+                {{(line.lineTotal) | currency:"USD":true:"2.2-2" }}
+              </td>
+              <td class="text-center">
+                <button class="btn btn-sm btn-danger"
+                        (click)="cart.removeLine(line.product.id)">
+                  Remove
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3" class="text-right">Total:</td>
+              <td class="text-right">
+                {{cart.cartPrice | currency:"USD":"symbol":"2.2-2"}}
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+      <div class="text-center">
+        <button class="btn btn-primary m-1" routerLink="/store">
+            Continue Shopping
+        </button>
+        <button class="btn btn-secondary m-1" routerLink="/checkout"
+                [disabled]="cart.lines.length == 0">
+          Checkout
+        </button>
+      </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+ <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
